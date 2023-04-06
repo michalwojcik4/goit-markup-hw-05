@@ -60,7 +60,9 @@
     <main class="background-main">
       <div class="main">
         <h1>EFEKTYWNE ROZWIĄZANIA DLA WASZEGO BIZNESU</h1>
-        <button type="button" class="main-button">Zamów usługe</button>
+        <button type="button" class="main-button" data-modal-open>
+          Zamów usługe
+        </button>
       </div>
     </main>
     <!-- nasze atuty -->
@@ -126,6 +128,7 @@
               width="370"
               height="294"
             />
+            <p>Aplikacje komputerowe</p>
           </li>
           <li>
             <img
@@ -134,6 +137,7 @@
               width="370"
               height="294"
             />
+            <p>Aplikacje mobilne</p>
           </li>
           <li>
             <img
@@ -142,6 +146,7 @@
               width="370"
               height="294"
             />
+            <p>Rozwiązania graficzne</p>
           </li>
         </ul>
       </section>
@@ -434,6 +439,15 @@
         </div>
       </div>
     </footer>
+    <div class="modal is-hidden" data-modal>
+      <div class="modal-box">
+        <button type="button" class="modal-button-close" data-modal-close>
+          <svg width="11px" height="11px">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
     <script src="./js/modal.js"></script>
   </body>
 </html>
