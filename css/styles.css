@@ -24,7 +24,7 @@ body {
 img { 
     display: block;
 }
-.header{
+.headline{
     border-bottom: 1px solid #ECECEC;
 }
 .logo{
@@ -40,7 +40,7 @@ img {
 .logo-color{
     color: var(--logo);
 }
-.headline{
+.header{
     display: flex;
     align-items: center;
     padding: 24px 15px;
@@ -51,7 +51,7 @@ img {
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-    padding-right: 12px;
+    padding: 0;
 }
 .menu-list{
     display: flex;
@@ -71,6 +71,21 @@ img {
 .menu-link:focus,
 .menu-link:hover{
     color: var(--focus-hover);
+}
+.active-link{
+    position: relative;
+    color: var(--focus-hover);
+}
+.active-link::after{
+    content: "";
+    display: block;
+    position: absolute;
+    margin-top: 28px;
+    right: 0;
+    left: 0;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--focus-hover);
 }
 .contact-list{
     display: flex;
