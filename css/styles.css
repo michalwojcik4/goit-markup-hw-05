@@ -506,21 +506,22 @@ h1{
 }
 .is-hidden{
     visibility: hidden;
-    pointer-events:  none;
+    opacity: 0;
+    pointer-events: none;
 }
 .modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
     background-color: rgba(0, 0, 0, 0.2);
 }
 .modal-box{
-    position: relative;
+    position: absolute;
     width: 528px;
     height: 581px;
     background-color: #FFF;
@@ -531,6 +532,8 @@ h1{
     position: absolute;
     top: 8px;
     right: 8px;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -541,4 +544,12 @@ h1{
     background-color: #FFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-button-close:hover,
+.modal-button-close:focus{
+    background-color: var(--focus-hover);
+    fill: #FFF;
+}
+
