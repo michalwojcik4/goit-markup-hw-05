@@ -87,6 +87,7 @@ img {
     height: 4px;
     border-radius: 2px;
     background-color: var(--focus-hover);
+    pointer-events: none;
 }
 .contact-list{
     display: flex;
@@ -106,8 +107,7 @@ img {
     gap: 10px;
     color: var(--text-grey);
     fill: var(--text-grey);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .contact-link:hover,
 .contact-link:focus{
@@ -288,8 +288,7 @@ h1{
     align-items: center;
     border-radius: 50%;
     fill: var(--icon-fill);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-icon:hover,
 .team-icon:focus{
@@ -322,8 +321,7 @@ h1{
     fill: var(--icon-fill);
     border: 1px solid var(--icon-fill);
     border-radius: 4px;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-icon:hover,
 .client-icon:focus{
@@ -354,9 +352,7 @@ h1{
     border-radius: 4px;
     border-style: none;
     padding: 6px 22px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-list button:hover,
 .filter-list button:focus{
@@ -504,24 +500,28 @@ h1{
 .second-box-icon:focus{
     background-color: var(--focus-hover);
 }
+/*formularz*/
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: opacityopen 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 .is-hidden{
     visibility: hidden;
-    opacity: 0;
     pointer-events: none;
+    animation: opacityclose 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .modal{
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-.modal-box{
+    z-index: 2;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 528px;
     height: 581px;
     background-color: #FFF;
@@ -544,12 +544,26 @@ h1{
     background-color: #FFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-button-close:hover,
 .modal-button-close:focus{
     background-color: var(--focus-hover);
     fill: #FFF;
 }
-
+@keyframes opacityopen {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes opacityclose {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
